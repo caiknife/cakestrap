@@ -7,6 +7,9 @@
         }
     });
 
+    // tooltop
+    $('[data-toggle="tooltip"]').tooltip()
+
     // fix sub nav on scroll
     var $win = $(window),
         $body = $('body'),
