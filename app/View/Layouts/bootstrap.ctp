@@ -65,20 +65,24 @@
     <div class="container">
         <?php echo $this->fetch('content');?>
     </div>
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="span12">
-                    <p class="pull-right"><a href="#top" rel="nofollow">回到顶端</a></p>
-                    CakeStrap
-                </div>
-            </div>
-            <div class="row">
-                <div class="span12">CakeStrap</div>
-            </div>
-            <div class="row">
-                <div class="span12">CakeStrap</div>
+    <div class="navbar navbar-fixed-bottom">
+        <div class="navbar-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <p>
+                            <div class="pull-right">
+                                <a href="#top" rel="nofollow">回到顶端</a>
+                            </div>                                
+                        </p>
+                        <p>
+                            <div class="info">
+                            BootStrap 2.3.2 速查板
+                            </div>
+                        </p>
+                    </div>
+                </div>            
             </div>
         </div>
-    </footer>
+    </div>
 </html>
