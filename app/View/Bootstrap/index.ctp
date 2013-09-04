@@ -354,6 +354,11 @@
                 <input class="input-medium search-query" type="text" />
                 <button type="submit" class="btn">搜索</button>
             </form>
+            <form class="well form-search">
+                <input class="input-small" type="text" placeholder="用户名/邮箱">
+                <input class="input-small" type="password" placeholder="密码">
+                <button type="submit" class="btn">提交</button>
+            </form>
         </div>
     </div>
 </section>
