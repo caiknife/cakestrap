@@ -194,12 +194,12 @@
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', 'qqqqqqqqqqqqqqqqqqqqqqqqqq');
+	Configure::write('Security.salt', 'caiknife');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
-	Configure::write('Security.cipherSeed', '0000000000000000');
+	Configure::write('Security.cipherSeed', '00000000');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
@@ -218,7 +218,7 @@
  *
  * To use, prefix the CSS link URL with '/ccss/' instead of '/css/' or use HtmlHelper::css().
  */
-	//Configure::write('Asset.filter.css', 'css.php');
+	// Configure::write('Asset.filter.css', 'css.php');
 
 /**
  * Plug in your own custom JavaScript compressor by dropping a script in your webroot to handle the
@@ -226,7 +226,7 @@
  *
  * To use, prefix your JavaScript link URLs with '/cjs/' instead of '/js/' or use JavaScriptHelper::link().
  */
-	//Configure::write('Asset.filter.js', 'custom_javascript_output_filter.php');
+	// Configure::write('Asset.filter.js', 'custom_javascript_output_filter.php');
 
 /**
  * The class name and database used in CakePHP's
@@ -321,7 +321,7 @@ if (Configure::read('debug') > 0) {
 }
 
 // Prefix each application on the same server with a different string, to avoid Memcache and APC conflicts.
-$prefix = 'myapp_';
+$prefix = 'cakestrap_';
 
 /**
  * Configure the cache used for general framework caching. Path information,
