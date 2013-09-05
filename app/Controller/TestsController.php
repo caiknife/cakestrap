@@ -6,9 +6,6 @@ class TestsController extends AppController {
      */
     public $uses = array();
 
-    //public $layout = 'bootstrap';
-    //public $autoLayout = false;
-
     /**
      * [index description]
      * @return [type] [description]

@@ -12,7 +12,6 @@ class BootstrapController extends AppController {
      */
     public $layout = 'bootstrap';
 
-
     /**
      * [index description]
      * @return [type] [description]
