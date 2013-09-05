@@ -1,10 +1,18 @@
 <?php
 class TestsController extends AppController {
+    /**
+     * [$uses description]
+     * @var array
+     */
     public $uses = array();
 
     //public $layout = 'bootstrap';
     //public $autoLayout = false;
 
+    /**
+     * [index description]
+     * @return [type] [description]
+     */
     public function index() {
         $url = 'http://localhost:6081/caketest/css/cake.generic.css';
         // $pattern = "/\.(css|js|jpg|jpeg|png|gif)/i";
@@ -23,6 +31,10 @@ class TestsController extends AppController {
         $this->set("content", $content);
     }
 
+    /**
+     * [search description]
+     * @return [type] [description]
+     */
     public function search() {
         $content = "";
         if ($this->request->is('post')) {
@@ -37,6 +49,10 @@ class TestsController extends AppController {
         $this->set("content", $content);
     }
 
+    /**
+     * [info description]
+     * @return [type] [description]
+     */
     public function info() {
         
     }
