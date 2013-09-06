@@ -53,4 +53,12 @@ class TestsController extends AppController {
     public function info() {
         
     }
+
+    /**
+     * [show description]
+     * @return [type] [description]
+     */
+    public function show() {
+
+    }
 }
