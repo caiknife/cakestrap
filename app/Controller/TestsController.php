@@ -12,17 +12,17 @@ class TestsController extends AppController {
      */
     public function index() {
         $url = 'http://localhost:6081/caketest/css/cake.generic.css';
-        // $pattern = "/\.(css|js|jpg|jpeg|png|gif)/i";
-        // preg_match($pattern, $url, $m);
-        $pattern = '/\/([\w\.]+)/i';
-        preg_match_all($pattern, $url, $m);
+        $pattern = "/\.(css|js|jpg|jpeg|png|gif)/i";
+        preg_match($pattern, $url, $m);
+        // $pattern = '/\/([\w\.]+)/i';
+        // preg_match_all($pattern, $url, $m);
         // debug($m);
 
         $http = array(
             'foo' => null,
             'kw' => '',
         );
-        // debug(http_build_query($http));
+        debug(http_build_query($http));
 
         $content = "This is a text!";
         $this->set("content", $content);
@@ -67,6 +67,10 @@ class TestsController extends AppController {
      * @return [type] [description]
      */
     public function show() {
+        debug($this->components);
 
+        debug($this->passedArgs);
+
+        debug($this->request->params);
     }
 }

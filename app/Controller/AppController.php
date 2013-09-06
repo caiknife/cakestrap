@@ -37,6 +37,12 @@ class AppController extends Controller {
      * @var array
      */
     public $components = array(
-        //'DebugKit.Toolbar',
+        'DebugKit.Toolbar',
     );
+
+    /**
+     * [$layout description]
+     * @var string
+     */
+    public $layout = 'bootstrap';
 }
