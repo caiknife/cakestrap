@@ -51,6 +51,14 @@ class TestsController extends AppController {
      * @return [type] [description]
      */
     public function info() {
-        
+        phpinfo();
+    }
+
+    /**
+     * [another_info description]
+     * @return [type] [description]
+     */
+    public function another_info() {
+        phpinfo();
     }
 }

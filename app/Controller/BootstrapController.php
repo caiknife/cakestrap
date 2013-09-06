@@ -18,5 +18,13 @@ class BootstrapController extends AppController {
      */
     public function index() {
         
+    }
+
+    /**
+     * [show description]
+     * @return [type] [description]
+     */
+    public function show() {
+
     }   
 }
