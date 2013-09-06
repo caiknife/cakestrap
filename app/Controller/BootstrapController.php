@@ -26,5 +26,13 @@ class BootstrapController extends AppController {
      */
     public function show() {
 
+    }
+
+    /*
+     * [info description]
+     * @return [type] [description]
+     */
+    public function info() {
+        phpinfo();
     }   
 }
