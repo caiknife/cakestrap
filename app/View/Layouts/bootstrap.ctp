@@ -19,12 +19,12 @@
 </head>
 <body id="top" class="other-preview" data-spy="scroll" data-target=".other-subnav" data-offset="80">
     <div class="navbar navbar-fixed-top">
-        <?php echo $this->element('bootstrap_header.ctp')?>
+        <?php echo $this->element('bootstrap_header')?>
     </div>
     <div class="container">
         <?php echo $this->fetch('content');?>
     </div>
     <div class="navbar navbar-fixed-bottom">
-        <?php echo $this->element('bootstrap_footer.ctp')?>
+        <?php echo $this->element('bootstrap_footer')?>
     </div>
 </html>
