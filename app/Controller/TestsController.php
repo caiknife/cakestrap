@@ -51,7 +51,7 @@ class TestsController extends AppController {
      * @return [type] [description]
      */
     public function info() {
-        phpinfo();
+
     }
 
     /**
@@ -59,7 +59,7 @@ class TestsController extends AppController {
      * @return [type] [description]
      */
     public function another_info() {
-        phpinfo();
+        $this->render('info');
     }
 
     /**

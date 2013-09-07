@@ -1,6 +1,6 @@
 <div>
-    <?= $this->element('tests/h1')?>
+    <?php echo $this->element('tests/h1');?>
     <p>
-        <?= phpinfo()?>
+        <?php //phpinfo();?>
     </p>
 </div>

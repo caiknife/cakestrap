@@ -44,5 +44,6 @@ class AppController extends Controller {
      * [$layout description]
      * @var string
      */
-    public $layout = 'bootstrap';
+    // public $layout = 'bootstrap';
+    public $layout = 'test';
 }
