@@ -45,5 +45,5 @@ class AppController extends Controller {
      * @var string
      */
     // public $layout = 'bootstrap';
-    public $layout = 'test';
+    public $layout = 'default';
 }
