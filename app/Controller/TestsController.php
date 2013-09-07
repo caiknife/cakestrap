@@ -10,7 +10,7 @@ class TestsController extends AppController {
      * [$layout description]
      * @var string
      */
-    public $layout = 'simple';
+    // public $layout = 'simple';
 
     /**
      * [index description]
