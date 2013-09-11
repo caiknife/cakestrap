@@ -3,6 +3,7 @@
 <head>
     <?php echo $this->Html->charset();?>
     <title><?php echo $title_for_layout;?></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <?php 
         echo $this->Html->meta('icon');
         echo $this->Html->meta(array('name' => 'viewport','content' => 'width=device-width, initial-scale=1.0'));
@@ -16,6 +17,19 @@
         echo $this->fetch('css');
         echo $this->fetch('script');
     ?>
+    <script type="text/javascript">
+    $(function(){
+        // prevent default click event;
+        $('a').click(function(e){
+            if ($(this).attr('href') == '#') {
+                e.preventDefault();
+            }
+        });
+
+        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="popover"]').popover();
+    });
+    </script>
 </head>
 <body id="top" class="other-preview" data-spy="scroll" data-target=".other-subnav" data-offset="80">
     <div class="navbar navbar-fixed-top">

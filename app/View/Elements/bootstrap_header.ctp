@@ -21,6 +21,52 @@
                         <li><a href="#" data-toggle="popover" data-placement="bottom" data-title="链接" data-content="这是下面" data-trigger="hover">链接</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">链接5 <i class="icon-plus"></i></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-submenu">
+                            <a href="#">链接1</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">子链接1</a></li>
+                                <li><a href="#">子链接2</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">子链接3</a></li>
+                                <li><a href="#">子链接4</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#">链接2</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">子链接1</a></li>
+                                <li><a href="#">子链接2</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">子链接3</a></li>
+                                <li><a href="#">子链接4</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="dropdown-submenu">
+                            <a href="#">链接3</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">子链接1</a></li>
+                                <li><a href="#">子链接2</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">子链接3</a></li>
+                                <li><a href="#">子链接4</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#">链接4</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">子链接1</a></li>
+                                <li><a href="#">子链接2</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">子链接3</a></li>
+                                <li><a href="#">子链接4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
             </ul>
             <div>
                 <form class="navbar-search form-search" method="get">

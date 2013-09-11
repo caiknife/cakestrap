@@ -1,15 +1,5 @@
 (function ($) {
     $(function(){
-    // prevent a link
-    $("a").click(function(e){
-        if ($(this).attr('href') == '#') {
-            e.preventDefault();
-        }
-    });
-
-    // tooltop
-    $('[data-toggle="tooltip"]').tooltip();
-
     // fix sub nav on scroll
     var $win = $(window),
         $body = $('body'),
