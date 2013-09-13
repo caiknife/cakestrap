@@ -7,11 +7,11 @@
     <?php 
         echo $this->Html->meta('icon');
         echo $this->Html->meta(array('name' => 'viewport','content' => 'width=device-width, initial-scale=1.0'));
-        echo $this->Html->css('bootstrap.min.css');
-        echo $this->Html->css('bootstrap-responsive.min.css');
+        echo $this->Html->css('/bs/css/bootstrap.min.css');
+        echo $this->Html->css('/bs/css/bootstrap-responsive.min.css');
         echo $this->Html->css('other.css');
-        echo $this->Html->script('jquery/jquery-1.8.3.min');
-        echo $this->Html->script('bootstrap.min');
+        echo $this->Html->script('jquery/jquery-1.8.3.min.js');
+        echo $this->Html->script('/bs/js/bootstrap.min.js');
 
         echo $this->fetch('meta');
         echo $this->fetch('css');

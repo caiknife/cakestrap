@@ -1,6 +1,6 @@
 (function ($) {
-    $(function(){
-    // fix sub nav on scroll
+    
+$(function(){
     var $win = $(window),
         $body = $('body'),
         $nav = $('.other-subnav'),
@@ -26,5 +26,6 @@
                 $body.css('margin-top', marginTop + 'px');
             }
         }
-    });
+});
+
 })(window.jQuery);
