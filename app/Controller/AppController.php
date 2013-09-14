@@ -38,12 +38,12 @@ class AppController extends Controller {
      */
     public $components = array(
         'DebugKit.Toolbar',
+        'Session', 'Paginator',
     );
 
     /**
      * [$layout description]
      * @var string
      */
-    // public $layout = 'bootstrap';
-    public $layout = 'default';
+    public $layout = 'ckpages';
 }
