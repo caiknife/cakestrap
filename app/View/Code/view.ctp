@@ -12,13 +12,13 @@
         </div>
         <div class="row">
             <div class="span12">
-                <label class="label label-info">代码内容</label>
                 <div class="pull-right">
                     <label class="label label-info">创建时间</label>
                     <span class="label label-success"><?php echo $code['Code']['created']?></span>
                     <label class="label label-info">修改时间</label>
                     <span class="label label-important"><?php echo $code['Code']['modified']?></span>
                 </div>
+                <label class="label label-info">代码内容</label>
                 <pre><code data-language="<?php echo $code['Code']['type']?>"><?php echo h($code['CodeContent']['content'])?></code></pre>
             </div>
         </div>
