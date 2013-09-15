@@ -61,7 +61,7 @@ class CodeController extends AppController {
             $lang = $lang[0];
             $langTypes[$lang] = $lang;
         }
-        
+        ksort($langTypes);
         return $langTypes;
     }
 }
