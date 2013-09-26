@@ -1,0 +1,16 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: relative;
+}
+
+section {
+  padding-top: 50px;
+}
+
+@media (max-width: 980px) {
+    body {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
