@@ -111,4 +111,4 @@ CakeLog::config('error', array(
 // load debug kit
 CakePlugin::load('DebugKit');
 
-CakePlugin::load('Plugintest', array('bootstrap' => true, 'routes' => true));
+CakePlugin::load('Migrations');

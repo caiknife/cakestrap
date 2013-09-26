@@ -1,16 +1,6 @@
 (function ($) {
-    $(function(){
-    // prevent a link
-    $("a").click(function(e){
-        if ($(this).attr('href') == '#') {
-            e.preventDefault();
-        }
-    });
-
-    // tooltop
-    $('[data-toggle="tooltip"]').tooltip()
-
-    // fix sub nav on scroll
+    
+$(function(){
     var $win = $(window),
         $body = $('body'),
         $nav = $('.other-subnav'),
@@ -36,5 +26,6 @@
                 $body.css('margin-top', marginTop + 'px');
             }
         }
-    });
+});
+
 })(window.jQuery);

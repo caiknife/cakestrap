@@ -53,7 +53,26 @@
  * unix_socket =>
  * For MySQL to connect via socket specify the `unix_socket` parameter instead of `host` and `port`
  */
+define('DEFAULT_DB', ROOT.DS.'db'.DS.'default.sqlite3');
+define('TEST_DB', ROOT.DS.'db'.DS.'test.sqlite3');
+
 class DATABASE_CONFIG {
+
+	// public $default = array(
+	// 	'datasource' => 'Database/Sqlite',
+	// 	'persistent' => false,
+	// 	'database' => DEFAULT_DB,
+	// 	'prefix' => '',
+	// 	// 'encoding' => 'utf8',
+	// );
+
+	// public $test = array(
+	// 	'datasource' => 'Database/Sqlite',
+	// 	'persistent' => false,
+	// 	'database' => TEST_DB,
+	// 	'prefix' => '',
+	// 	// 'encoding' => 'utf8',
+	// );
 
 	public $default = array(
 		'datasource' => 'Database/Mysql',
@@ -61,7 +80,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => 'root',
-		'database' => 'buybuy',
+		'database' => 'cakeblog',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);
@@ -70,10 +89,10 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'user',
-		'password' => 'password',
-		'database' => 'test_database_name',
+		'login' => 'root',
+		'password' => 'root',
+		'database' => 'test',
 		'prefix' => '',
-		//'encoding' => 'utf8',
+		'encoding' => 'utf8',
 	);
 }

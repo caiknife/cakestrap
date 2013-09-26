@@ -7,6 +7,12 @@ class TestsController extends AppController {
     public $uses = array();
 
     /**
+     * [$layout description]
+     * @var string
+     */
+    // public $layout = 'simple';
+
+    /**
      * [index description]
      * @return [type] [description]
      */
@@ -22,7 +28,7 @@ class TestsController extends AppController {
             'foo' => null,
             'kw' => '',
         );
-        debug(http_build_query($http));
+        // debug(http_build_query($http));
 
         $content = "This is a text!";
         $this->set("content", $content);
@@ -51,7 +57,7 @@ class TestsController extends AppController {
      * @return [type] [description]
      */
     public function info() {
-        phpinfo();
+
     }
 
     /**
@@ -59,7 +65,7 @@ class TestsController extends AppController {
      * @return [type] [description]
      */
     public function another_info() {
-        phpinfo();
+        $this->render('info');
     }
 
     /**
@@ -72,5 +78,10 @@ class TestsController extends AppController {
         debug($this->passedArgs);
 
         debug($this->request->params);
+    }
+
+    public function bootstrap() {
+        $this->layout = 'bootstrap_test';
+        $this->render('../bootstrap/index');
     }
 }

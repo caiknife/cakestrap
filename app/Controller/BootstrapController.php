@@ -34,5 +34,9 @@ class BootstrapController extends AppController {
      */
     public function info() {
         phpinfo();
-    }   
+    }
+
+    public function full() {
+        $this->layout = 'bootstrap_test';
+    }
 }
