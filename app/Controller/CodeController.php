@@ -55,10 +55,13 @@ class CodeController extends AppController {
                 continue;
             }
             $lang = $file->getFilename();
-            $lang = explode('.', $lang)[0];
+            // this syntax is not valid on PHP5.3.X
+            // $lang = explode('.', $lang)[0];
+            $lang = explode('.', $lang);
+            $lang = $lang[0];
             $langTypes[$lang] = $lang;
         }
-        
+        ksort($langTypes);
         return $langTypes;
     }
 }

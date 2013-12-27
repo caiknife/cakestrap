@@ -21,7 +21,7 @@
                     <h3>其他功能</h3>
                     <p>更多功能，等待上线。</p>
                     <p>
-                        <a href="#" class="btn btn-inverse">稍后再来看看吧</a>
+                        <a href="#" class="btn btn-inverse disabled">稍后再来看看吧</a>
                     </p>
                 </div>
             </div>
