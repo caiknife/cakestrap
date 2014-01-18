@@ -48,6 +48,6 @@ class AppController extends Controller {
     public $layout = 'ckpages';
 
     public function beforeFilter() {
-        parent::beforeFilter();
+        // do nothing
     }
 }
