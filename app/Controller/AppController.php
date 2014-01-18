@@ -46,4 +46,8 @@ class AppController extends Controller {
      * @var string
      */
     public $layout = 'ckpages';
+
+    public function beforeFilter() {
+        parent::beforeFilter();
+    }
 }
