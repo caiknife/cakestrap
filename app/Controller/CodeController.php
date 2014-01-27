@@ -15,7 +15,8 @@ class CodeController extends AppController {
         ),
     );
 
-    public function beforeFilter() {        
+    public function beforeFilter() {
+        parent::beforeFilter();
         $langTypes = $this->_getLangeTypes();
         $this->set(compact('langTypes'));
     }
