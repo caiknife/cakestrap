@@ -2,8 +2,6 @@
 /**
  * PostgreSQL layer for DBO.
  *
- * PHP 5
- *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -130,6 +128,11 @@ class Postgres extends DboSource {
 			}
 			if (!empty($config['schema'])) {
 				$this->_execute('SET search_path TO ' . $config['schema']);
+			}
+			if (!empty($config['settings'])) {
+				foreach ($config['settings'] as $key => $value) {
+					$this->_execute("SET $key TO $value");
+				}
 			}
 		} catch (PDOException $e) {
 			throw new MissingConnectionException(array(
@@ -320,7 +323,8 @@ class Postgres extends DboSource {
 		$fullTable = $this->fullTableName($table);
 
 		$sequence = $this->value($this->getSequence($tableName, $column));
-		$this->execute("SELECT setval($sequence, (SELECT MAX(id) FROM $fullTable))");
+		$column = $this->name($column);
+		$this->execute("SELECT setval($sequence, (SELECT MAX($column) FROM $fullTable))");
 		return true;
 	}
 
@@ -341,7 +345,6 @@ class Postgres extends DboSource {
 			$this->cacheSources = $cache;
 		}
 		if ($this->execute('DELETE FROM ' . $this->fullTableName($table))) {
-			$schema = $this->config['schema'];
 			if (isset($this->_sequenceMap[$table]) && $reset != true) {
 				foreach ($this->_sequenceMap[$table] as $sequence) {
 					list($schema, $sequence) = explode('.', $sequence);
@@ -845,6 +848,7 @@ class Postgres extends DboSource {
 		);
 
 		$out = str_replace('integer serial', 'serial', $out);
+		$out = str_replace('bigint serial', 'bigserial', $out);
 		if (strpos($out, 'timestamp DEFAULT')) {
 			if (isset($column['null']) && $column['null']) {
 				$out = str_replace('DEFAULT NULL', '', $out);

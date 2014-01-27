@@ -4,8 +4,6 @@
  *
  * Provides enhanced logging, stack traces, and rendering debug views
  *
- * PHP 5
- *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -203,7 +201,7 @@ class Debugger {
  * @param integer $line Line that triggered the error
  * @param array $context Context
  * @return boolean true if error was handled
- * @deprecated This function is superseded by Debugger::outputError()
+ * @deprecated Will be removed in 3.0. This function is superseded by Debugger::outputError().
  */
 	public static function showError($code, $description, $file = null, $line = null, $context = null) {
 		$self = Debugger::getInstance();
@@ -805,7 +803,7 @@ class Debugger {
 	}
 
 /**
- * Get the type of the given variable. Will return the classname
+ * Get the type of the given variable. Will return the class name
  * for objects.
  *
  * @param mixed $var The variable to get the type of
@@ -846,11 +844,11 @@ class Debugger {
  */
 	public static function checkSecurityKeys() {
 		if (Configure::read('Security.salt') === 'DYhG93b0qyJfIxfs2guVoUubWwvniR2G0FgaC9mi') {
-			trigger_error(__d('cake_dev', 'Please change the value of \'Security.salt\' in app/Config/core.php to a salt value specific to your application'), E_USER_NOTICE);
+			trigger_error(__d('cake_dev', 'Please change the value of %s in %s to a salt value specific to your application.', '\'Security.salt\'', 'APP/Config/core.php'), E_USER_NOTICE);
 		}
 
 		if (Configure::read('Security.cipherSeed') === '76859309657453542496749683645') {
-			trigger_error(__d('cake_dev', 'Please change the value of \'Security.cipherSeed\' in app/Config/core.php to a numeric (digits only) seed value specific to your application'), E_USER_NOTICE);
+			trigger_error(__d('cake_dev', 'Please change the value of %s in %s to a numeric (digits only) seed value specific to your application.', '\'Security.cipherSeed\'', 'APP/Config/core.php'), E_USER_NOTICE);
 		}
 	}
 
