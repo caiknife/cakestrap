@@ -57,7 +57,7 @@ class TestsController extends AppController {
      * @return [type] [description]
      */
     public function info() {
-
+        phpinfo();
     }
 
     /**
@@ -78,6 +78,10 @@ class TestsController extends AppController {
         debug($this->passedArgs);
 
         debug($this->request->params);
+
+        debug($this->request->query);
+
+        debug($_GET);
     }
 
     public function bootstrap() {

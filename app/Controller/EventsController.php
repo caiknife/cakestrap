@@ -112,7 +112,7 @@ class ProfileListener implements CakeEventListener {
         return array(
             'Controller.events.index' => array(
                 'callable' => 'profile', 
-                'priority' => -2
+                'priority' => -2,
             ),
         );
     }
