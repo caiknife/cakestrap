@@ -2,8 +2,6 @@
 /**
  * FileEngineTest file
  *
- * PHP 5
- *
  * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -381,20 +379,19 @@ class FileEngineTest extends CakeTestCase {
 	}
 
 /**
- * check that FileEngine generates an error when a configured Path does not exist.
+ * check that FileEngine does not generate an error when a configured Path does not exist in debug mode.
  *
- * @expectedException PHPUnit_Framework_Error_Warning
  * @return void
  */
-	public function testErrorWhenPathDoesNotExist() {
-		$this->skipIf(is_dir(TMP . 'tests' . DS . 'file_failure'), 'Cannot run test directory exists.');
+	public function testPathDoesNotExist() {
+		$this->skipIf(is_dir(TMP . 'tests' . DS . 'autocreate'), 'Cannot run if test directory exists.');
 
-		Cache::config('failure', array(
+		Cache::config('autocreate', array(
 			'engine' => 'File',
-			'path' => TMP . 'tests' . DS . 'file_failure'
+			'path' => TMP . 'tests' . DS . 'autocreate'
 		));
 
-		Cache::drop('failure');
+		Cache::drop('autocreate');
 	}
 
 /**
@@ -531,4 +528,24 @@ class FileEngineTest extends CakeTestCase {
 		$this->assertFalse(Cache::read('test_groups5', 'file_groups2'));
 		$this->assertEquals('value 3', Cache::read('test_groups6', 'file_groups3'));
 	}
+
+/**
+ * Test that clearGroup works with no prefix.
+ *
+ * @return void
+ */
+	public function testGroupClearNoPrefix() {
+		Cache::config('file_groups', array(
+			'engine' => 'File',
+			'duration' => 3600,
+			'prefix' => '',
+			'groups' => array('group_a', 'group_b')
+		));
+		Cache::write('key_1', 'value', 'file_groups');
+		Cache::write('key_2', 'value', 'file_groups');
+		Cache::clearGroup('group_a', 'file_groups');
+		$this->assertFalse(Cache::read('key_1', 'file_groups'), 'Did not delete');
+		$this->assertFalse(Cache::read('key_2', 'file_groups'), 'Did not delete');
+	}
+
 }
