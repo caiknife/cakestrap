@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+body {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: relative;
+}
+
+section {
+    padding-top: 10px;
+}
+
+@media (max-width: 980px) {
+    body {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.main-menu {
+    display: block;
+    margin-bottom: 5px;
+    *width: 260px;
+}
+
+.affix {
+    top: 60px;
+    display: fixed;
+    left: 40px;
+}

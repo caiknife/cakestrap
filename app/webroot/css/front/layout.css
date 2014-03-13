@@ -1,0 +1,116 @@
+@charset "UTF-8";
+.container-fluid{
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+.container {
+    width: 970px;
+}
+
+div {
+    display: block;
+}
+.bottom{
+    color: #333333;
+}
+
+.bottom p{
+    font-family: Arial;
+    color: #000;
+    font-size: 12px;
+}
+.bottom a:visited {
+    text-decoration: none;
+}
+
+.background{
+    background: url(/img/front/bg_04.png) repeat-x;
+}
+.font-red{
+    color:#c43c35;
+}
+.padding10{
+    padding:10px;
+}
+.navbar{
+    margin-bottom: 0px;
+}
+.navbar .nav>li>p{
+    float: none;
+    padding: 10px 15px 10px;
+    color: #000;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fff;
+}
+.navbar-inverse .navbar-inner {
+    background-color: #FFF;
+    background-image: -o-linear-gradient(top,#FFF,#FFF);
+    background-image: linear-gradient(to bottom,#FFF,#FFF);
+    background-repeat: repeat-x;
+    border-color: #FFF;
+}
+.topBanner {
+    background: url(/img/bannerBg.png) repeat-x;
+}
+.topBanner .wrapper {
+    height: 126px;
+    background: url(/img/headerBg.png) no-repeat 9px 25px;
+}
+.t_left_domn {
+    font-family: "SimSun";
+    border-right: #94876F 1px solid;
+    background-color: #F5F5F5;
+    margin: 20px 0px 0px 0px;
+}
+
+.t_left_domn1 {
+    font-family: "SimSun";
+    background: url(/img/dot6.gif) no-repeat 15px 25px;
+    padding: 18px 25px 20px 10px;
+    margin: 0px;
+}
+.t_left_domn hr{
+    border-bottom: 1px solid #D8D6D6;
+    margin: 0px 30px;
+">
+}
+.t_left_domn1>h4>a:active{
+    text-decoration: underline;
+    color: #ff0000;
+}
+.t_left_domn1>h4>a:visited{
+    text-decoration: underline;
+    color: #ff0000;
+}
+.t_left_domn1 h4 {
+    font-family: "SimSun";
+    padding-left: 25px;
+    display: inline;
+    color: #A50000;
+    font-weight: bold;
+}
+.t_left_domn1>ul>li>a:active{
+    color: #000000;
+}
+.t_left_domn1>ul>li>a:visited{
+    color: #000000;
+}
+.t_left_domn1>ul>li>a{
+    color: #000000;
+}
+.t_left_domn1 ul>li {
+    font-family: "SimSun";
+    padding-left: 0px;
+    padding-top:10px;
+    color: #000000;
+    font-size: 16px;
+    font-weight:normal;
+}
+
+.padding-top20{
+    padding-top: 20px;
+}
+.padding-left20{
+    padding-left: 20px;
+}
