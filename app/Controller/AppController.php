@@ -52,41 +52,6 @@ class AppController extends Controller {
     protected $_noFilterActions = array();
 
     /**
-     * 所有文章分类
-     * @var array
-     */
-    protected $_allCategory = array();
-
-    /**
-     * 上传文件后的目标文件
-     * @var null
-     */
-    protected $_destFile = null;
-
-    /**
-     * 当前上传的 Excel 类型
-     * @var null
-     */
-    protected $_currentExcelType = null;
-
-    /**
-     * Excel 文件所需的数据列数
-     * @var array
-     */
-    protected $_cellCount = array(
-        'trainee' => 18,
-        'jiaoshi' => 18,
-        'jigou'   => 13,
-        'xinxi'   => 13,
-    );
-
-    /**
-     * 最终处理之后的 Excel 数据
-     * @var array
-     */
-    protected $_excelData = array();
-
-    /**
      * 前置过滤器，根据 router prefix 调用前台或者后台的前置过滤方法
      */
     public function beforeFilter() {
@@ -148,35 +113,6 @@ class AppController extends Controller {
      */
     protected function _isAdminSignIn() {
         return $this->Session->check('Admin.signin');
-    }
-
-    protected function _readExcel() {
-        // 获取表结构名
-        $excelConfig = Configure::read('Admin.excel');
-        $keyData = $excelConfig[$this->_currentExcelType];
-        $objExcel = PHPExcel_IOFactory::load($this->_destFile);
-        foreach ($objExcel->getWorksheetIterator() as $worksheet) {
-            // 检查 Excel 表格数据列数
-            $columnCount = ord($worksheet->getHighestColumn()) - ord('A') + 1;
-            if ($columnCount !== $this->_cellCount[$this->_currentExcelType]) {
-                throw new InternalErrorException(MESSAGE_COLUMN_COUNT_NOT_MATCH);
-            }
-            foreach ($worksheet->getRowIterator() as $row) {
-                // 第一行是表头，忽略
-                if ($row->getRowIndex() === 1) {
-                    continue;
-                }
-                $rowData = array();
-                foreach ($row->getCellIterator() as $cell) {
-                    $rowData[] = $cell->getValue();
-                }
-                $this->_excelData[] = array_combine($keyData, $rowData);
-                // 先测试第一个
-                // break;
-            }
-            // 只读取第一个 Worksheet
-            break;
-        }
     }
 
     /**

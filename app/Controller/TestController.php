@@ -27,11 +27,4 @@ class TestController extends AppController {
     public function hello() {
         $this->Session->setFlash("Hello, world!", 'notify' , array('status'=>'success'));
     }
-
-    public function excel() {
-        $this->_destFile = WWW_ROOT . 'files' . DS . 'upload' . DS . '1393140540.xls';
-        $this->_currentExcelType = 'trainee';
-        $this->_readExcel();
-        $this->Test->saveAll($this->_excelData);
-    }
 }
