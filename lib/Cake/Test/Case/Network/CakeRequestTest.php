@@ -696,18 +696,18 @@ class CakeRequestTest extends CakeTestCase {
 		$_SERVER['HTTP_X_FORWARDED_FOR'] = '192.168.1.5, 10.0.1.1, proxy.com';
 		$_SERVER['HTTP_CLIENT_IP'] = '192.168.1.2';
 		$_SERVER['REMOTE_ADDR'] = '192.168.1.3';
+
 		$request = new CakeRequest('some/path');
-		$this->assertEquals('192.168.1.5', $request->clientIp(false));
-		$this->assertEquals('192.168.1.2', $request->clientIp());
+		$this->assertEquals('192.168.1.3', $request->clientIp(), 'Use remote_addr in safe mode');
+		$this->assertEquals('192.168.1.5', $request->clientIp(false), 'Use x-forwarded');
 
 		unset($_SERVER['HTTP_X_FORWARDED_FOR']);
-		$this->assertEquals('192.168.1.2', $request->clientIp());
+		$this->assertEquals('192.168.1.3', $request->clientIp(), 'safe uses remote_addr');
+		$this->assertEquals('192.168.1.2', $request->clientIp(false), 'unsafe reads from client_ip');
 
 		unset($_SERVER['HTTP_CLIENT_IP']);
-		$this->assertEquals('192.168.1.3', $request->clientIp());
-
-		$_SERVER['HTTP_CLIENTADDRESS'] = '10.0.1.2, 10.0.1.1';
-		$this->assertEquals('10.0.1.2', $request->clientIp());
+		$this->assertEquals('192.168.1.3', $request->clientIp(), 'use remote_addr');
+		$this->assertEquals('192.168.1.3', $request->clientIp(false), 'use remote_addr');
 	}
 
 /**
@@ -2442,6 +2442,24 @@ XML;
 
 		$this->setExpectedException('MethodNotAllowedException');
 		$request->allowMethod('POST');
+	}
+
+/**
+ * Tests that overriding the method to GET will clean all request
+ * data, to better simulate a GET request.
+ *
+ * @return void
+ */
+	public function testMethodOverrideEmptyData() {
+		$_POST = array('_method' => 'GET', 'foo' => 'bar');
+		$_SERVER['REQUEST_METHOD'] = 'PUT';
+		$request = new CakeRequest('/posts/edit/1');
+		$this->assertEmpty($request->data);
+
+		$_POST = array('foo' => 'bar');
+		$_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'] = 'GET';
+		$request = new CakeRequest('/posts/edit/1');
+		$this->assertEmpty($request->data);
 	}
 
 /**

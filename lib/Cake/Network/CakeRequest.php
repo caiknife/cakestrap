@@ -173,9 +173,13 @@ class CakeRequest implements ArrayAccess {
 		if (ini_get('magic_quotes_gpc') === '1') {
 			$this->data = stripslashes_deep($this->data);
 		}
+
+		$override = null;
 		if (env('HTTP_X_HTTP_METHOD_OVERRIDE')) {
 			$this->data['_method'] = env('HTTP_X_HTTP_METHOD_OVERRIDE');
+			$override = $this->data['_method'];
 		}
+
 		$isArray = is_array($this->data);
 		if ($isArray && isset($this->data['_method'])) {
 			if (!empty($_SERVER)) {
@@ -183,8 +187,14 @@ class CakeRequest implements ArrayAccess {
 			} else {
 				$_ENV['REQUEST_METHOD'] = $this->data['_method'];
 			}
+			$override = $this->data['_method'];
 			unset($this->data['_method']);
 		}
+
+		if ($override && !in_array($override, array('POST', 'PUT', 'PATCH', 'DELETE'))) {
+			$this->data = array();
+		}
+
 		if ($isArray && isset($this->data['data'])) {
 			$data = $this->data['data'];
 			if (count($this->data) <= 1) {
@@ -395,20 +405,10 @@ class CakeRequest implements ArrayAccess {
 	public function clientIp($safe = true) {
 		if (!$safe && env('HTTP_X_FORWARDED_FOR')) {
 			$ipaddr = preg_replace('/(?:,.*)/', '', env('HTTP_X_FORWARDED_FOR'));
+		} elseif (!$safe && env('HTTP_CLIENT_IP')) {
+			$ipaddr = env('HTTP_CLIENT_IP');
 		} else {
-			if (env('HTTP_CLIENT_IP')) {
-				$ipaddr = env('HTTP_CLIENT_IP');
-			} else {
-				$ipaddr = env('REMOTE_ADDR');
-			}
-		}
-
-		if (env('HTTP_CLIENTADDRESS')) {
-			$tmpipaddr = env('HTTP_CLIENTADDRESS');
-
-			if (!empty($tmpipaddr)) {
-				$ipaddr = preg_replace('/(?:,.*)/', '', $tmpipaddr);
-			}
+			$ipaddr = env('REMOTE_ADDR');
 		}
 		return trim($ipaddr);
 	}
@@ -685,7 +685,7 @@ class CakeRequest implements ArrayAccess {
  * This modifies the parameters available through `$request->params`.
  *
  * @param array $params Array of parameters to merge in
- * @return $this
+ * @return self
  */
 	public function addParams($params) {
 		$this->params = array_merge($this->params, (array)$params);
@@ -697,7 +697,7 @@ class CakeRequest implements ArrayAccess {
  * Provides an easy way to modify, here, webroot and base.
  *
  * @param array $paths Array of paths to merge in
- * @return $this
+ * @return self
  */
 	public function addPaths($paths) {
 		foreach (array('webroot', 'here', 'base') as $element) {
@@ -938,7 +938,7 @@ class CakeRequest implements ArrayAccess {
  * will be created for you.
  *
  * @param string $name Dot separated name of the value to read/write, one or more args.
- * @return mixed|$this Either the value being read, or $this so you can chain consecutive writes.
+ * @return mixed|self Either the value being read, or $this so you can chain consecutive writes.
  */
 	public function data($name) {
 		$args = func_get_args();

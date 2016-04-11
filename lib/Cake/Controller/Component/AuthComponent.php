@@ -89,7 +89,7 @@ class AuthComponent extends Component {
 /**
  * Objects that will be used for authentication checks.
  *
- * @var array
+ * @var BaseAuthenticate[]
  */
 	protected $_authenticateObjects = array();
 
@@ -129,7 +129,7 @@ class AuthComponent extends Component {
 /**
  * Objects that will be used for authorization checks.
  *
- * @var array
+ * @var BaseAuthorize[]
  */
 	protected $_authorizeObjects = array();
 
@@ -419,7 +419,7 @@ class AuthComponent extends Component {
 		} else {
 			$url = $this->unauthorizedRedirect;
 		}
-		$controller->redirect($url, null, true);
+		$controller->redirect($url);
 		return false;
 	}
 
@@ -653,7 +653,7 @@ class AuthComponent extends Component {
  * cookies + sessions will be used.
  *
  * @param string $key field to retrieve. Leave null to get entire User record
- * @return array|null User record. or null if no user is logged in.
+ * @return mixed|null User record. or null if no user is logged in.
  * @link http://book.cakephp.org/2.0/en/core-libraries/components/authentication.html#accessing-the-logged-in-user
  */
 	public static function user($key = null) {
