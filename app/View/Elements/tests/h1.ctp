@@ -1,1 +1,0 @@
-<h1>Hello, <?= $this->request->params['action']?>!</h1>
